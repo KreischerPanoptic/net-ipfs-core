@@ -132,7 +132,7 @@ namespace Ipfs.CoreApi
         /// <returns>
         ///   An asynchronous stream of <see cref="PingResult"/>.
         /// </returns>
-        IAsyncEnumerable<PingResult> Ping(
+        IAsyncEnumerable<PingResult> PingAsyncStreamAsync(
             MultiHash peer,
             int count = 10,
             CancellationToken cancel = default
@@ -153,7 +153,7 @@ namespace Ipfs.CoreApi
         /// <returns>
         ///   An asynchronous stream of <see cref="PingResult"/>.
         /// </returns>
-        IAsyncEnumerable<PingResult> Ping(
+        IAsyncEnumerable<PingResult> PingAsyncStreamAsync(
             MultiAddress address,
             int count = 10,
             CancellationToken cancel = default

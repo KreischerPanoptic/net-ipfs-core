@@ -4,7 +4,7 @@ using System.Text;
 using Ipfs.Cryptography;
 using System.Security.Cryptography;
 using BC = Org.BouncyCastle.Crypto.Digests;
-
+using Murmur;
 
 namespace Ipfs.Registry
 {
@@ -72,6 +72,8 @@ namespace Ipfs.Registry
             Register("blake2s-256", 0xb260, 256 / 8, () => new BouncyDigest(new BC.Blake2sDigest(256)));
             Register("md4", 0xd4, 128 / 8, () => new BouncyDigest(new BC.MD4Digest()));
             Register("md5", 0xd5, 128 / 8, () => MD5.Create());
+            Register("murmur3-128", 0x22, 128 / 8, () => MurmurHash.Create128(managed: true, preference: AlgorithmPreference.Auto));
+            RegisterAlias("murmur3", "murmur3-128");
             Register("identity", 0, 0, () => new IdentityHash());
             RegisterAlias("id", "identity");
         }
